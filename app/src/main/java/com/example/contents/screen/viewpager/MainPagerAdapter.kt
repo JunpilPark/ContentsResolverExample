@@ -3,15 +3,21 @@ package com.example.contents.screen.viewpager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.contents.screen.contact.ContactFragment
+import com.example.contents.screen.schedule.ScheduleFragment
 
-class MainPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
+class MainPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return 2
     }
 
     override fun createFragment(position: Int): Fragment {
-        TODO("Not yet implemented")
+        return when(position) {
+            0 -> ContactFragment()
+            1 -> ScheduleFragment()
+            else -> ContactFragment()
+        }
     }
 
 }
